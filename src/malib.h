@@ -1,5 +1,5 @@
  /************************************************************************
-    # Mathematical Analysis Lib	  by v1.0
+    # Mathematical Analysis Lib	  by v2.0
     # Author : lynsucceed
     # function : Linear Algebra (Matrix Calculate) 
                  Fourier transform
@@ -31,15 +31,18 @@ struct Complex {
 	 }; 
 
 // Complex number Calculate
-double Complex_abs(struct Complex a);
-struct Complex Complex_plus(struct Complex a,struct Complex b);
-struct Complex Complex_multiply(struct Complex a,struct Complex b);
+void Complex_conjugate(int n,struct Complex in[],struct Complex out[]);
+void Complex_abs(struct Complex a,double *abs);
+void Complex_plus(struct Complex a,struct Complex b,struct Complex *c);
+void Complex_sub(struct Complex a,struct Complex b,struct Complex *c);  
+void Complex_multiply(struct Complex a,struct Complex b,struct Complex *c);
 // Matrix Calculate
 void Matrix_plus(int **Matrix_a,int **Matrix_b,int **Matrix_sum,int row,int column);
 void Matrix_multiply(int **Matrix_a,int **Matrix_b,int **Matrix_product,int common,int row,int column);
 void Matrix_transpose(int **Matrix_a,int **Matrix_at, int row,int column); 
 // Fourier transform
 void DFT(struct Complex *x,struct Complex *X,int N);
-void FFT(struct Complex *x,struct Complex *X, struct Complex *xe,struct Complex *xo,struct Complex *X1,struct Complex *X2,int N);
-	
+void FFT(int N,struct Complex f[],struct Complex *out );   
+void IFFT(int N,struct Complex f[],struct Complex *out);
+
 #endif 
